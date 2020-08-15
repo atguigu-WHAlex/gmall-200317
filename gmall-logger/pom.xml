@@ -76,6 +76,12 @@
             <version>1.3.8.RELEASE</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.atguigu</groupId>
+            <artifactId>gmall-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 
     <build>

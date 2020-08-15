@@ -17,6 +17,7 @@
         <module>gmall-common</module>
         <module>gmall-mocker</module>
         <module>gmall-logger</module>
+        <module>gmall-realtime</module>
     </modules>
 
     <properties>
