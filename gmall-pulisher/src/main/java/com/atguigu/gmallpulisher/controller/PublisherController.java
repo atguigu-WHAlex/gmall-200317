@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.time.LocalDate;
+import java.util.*;
 
 @RestController
 public class PublisherController {
@@ -43,6 +42,46 @@ public class PublisherController {
         result.add(newMidMap);
 
         //6.返回结果
+        return JSONObject.toJSONString(result);
+    }
+
+    @RequestMapping("realtime-hours")
+    public String getDauTotalHourMap(@RequestParam("id") String id,
+                                     @RequestParam("date") String date) {
+
+        //创建Map用于存放结果数据
+        HashMap<String, Map> result = new HashMap<>();
+
+        if ("dau".equals(id)) {
+
+            //1.查询当天的分时数据
+            Map todayMap = publisherService.getDauTotalHourMap(date);
+
+            //2.查询昨天的分时数据
+            String yesterday = LocalDate.parse(date).plusDays(-1).toString();
+            Map yesterdayMap = publisherService.getDauTotalHourMap(yesterday);
+
+            //3.将yesterdayMap和todayMap放入result
+            result.put("yesterday", yesterdayMap);
+            result.put("today", todayMap);
+
+        } else if ("new_mid".equals(id)) {
+
+            HashMap<String, Long> yesterdayMap = new HashMap<>();
+            yesterdayMap.put("09", 100L);
+            yesterdayMap.put("12", 200L);
+            yesterdayMap.put("17", 150L);
+
+            HashMap<String, Long> todayMap = new HashMap<>();
+            todayMap.put("10",400L);
+            todayMap.put("13",450L);
+            todayMap.put("15",500L);
+            todayMap.put("20",600L);
+
+            result.put("yesterday", yesterdayMap);
+            result.put("today", todayMap);
+        }
+
         return JSONObject.toJSONString(result);
     }
 
