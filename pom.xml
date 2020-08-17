@@ -18,6 +18,8 @@
         <module>gmall-mocker</module>
         <module>gmall-logger</module>
         <module>gmall-realtime</module>
+        <module>gmall-pulisher</module>
+        <module>dw-chart</module>
     </modules>
 
     <properties>
@@ -113,5 +115,5 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    
+
 </project>
