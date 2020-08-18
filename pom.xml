@@ -20,6 +20,7 @@
         <module>gmall-realtime</module>
         <module>gmall-pulisher</module>
         <module>dw-chart</module>
+        <module>gmall-canal</module>
     </modules>
 
     <properties>
