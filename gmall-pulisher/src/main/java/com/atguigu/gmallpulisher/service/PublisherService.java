@@ -12,4 +12,6 @@ public interface PublisherService {
 
     public Map getOrderAmountHourMap(String date);
 
+    public Map getSaleDetail(String date, int startpage, int size, String keyword);
+
 }

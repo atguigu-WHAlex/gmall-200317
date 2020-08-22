@@ -147,4 +147,13 @@ public class PublisherController {
         return JSONObject.toJSONString(result);
     }
 
+    @RequestMapping("sale_detail")
+    public String getSaleDetail(@RequestParam("date") String date,
+                                @RequestParam("startpage") int startpage,
+                                @RequestParam("size") int size,
+                                @RequestParam("keyword") String keyword) {
+
+        return JSONObject.toJSONString(publisherService.getSaleDetail(date, startpage, size, keyword));
+    }
+
 }

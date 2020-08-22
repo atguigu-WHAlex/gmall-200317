@@ -3,7 +3,7 @@ package com.atguigu.app
 import java.time.LocalDate
 import java.util
 
-import com.alibaba.fastjson.{JSON, JSONObject}
+import com.alibaba.fastjson.JSON
 import com.atguigu.bean.{OrderDetail, OrderInfo, SaleDetail, UserInfo}
 import com.atguigu.constants.GmallConstants
 import com.atguigu.utils.{MyEsUtil, MyKafkaUtil, RedisUtil}
@@ -12,10 +12,10 @@ import org.apache.spark.SparkConf
 import org.apache.spark.streaming.dstream.{DStream, InputDStream}
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 import org.json4s.DefaultFormats
-import redis.clients.jedis.Jedis
 import org.json4s.native.Serialization
+import redis.clients.jedis.Jedis
 
-import collection.JavaConverters._
+import scala.collection.JavaConverters._
 import scala.collection.mutable.ListBuffer
 
 object SaleDetailApp {
